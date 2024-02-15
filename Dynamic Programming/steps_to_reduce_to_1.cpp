@@ -1,3 +1,10 @@
+//  Question :
+// Given "n" you can perform 3 operations
+// 1]decrease it by 1,
+// 2]divide it by 2 if divisible,
+// 3]divide it by 3 if divisible.
+// Return min number of these operations required to make n to 1
+
 #include <bits/stdc++.h>
 using namespace std;
 
