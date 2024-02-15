@@ -5,6 +5,19 @@
 // 3]divide it by 3 if divisible.
 // Return min number of these operations required to make n to 1
 
+// Solution
+// Approach :
+// -It looks like Greedy but it won't work always.Ex n=8-> 8+1->9,9/3->3,3/3->1 we require 3 operations
+// -So the correct approach is to at each instance we have to check all three operations and form a tree like structure and perform operation till we get 1 and count number of steps required and return minimum answer.
+// -Recurrence Relation:
+
+//                      |----->f(n-1)
+// f(n)-------mini_of---|----->(n%2==0) f(n/2)
+//                      |----->(n%3==0) f(n/3)
+
+// -Base case n==1 return 0 and if (n==2 || n==3) return 1
+
+// Code:
 #include <bits/stdc++.h>
 using namespace std;
 
