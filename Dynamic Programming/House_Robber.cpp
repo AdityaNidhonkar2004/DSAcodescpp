@@ -23,7 +23,8 @@
 
 // Solution:
 // Approach:
-// - Here we we apply recurrsion and whe n we are at ith house we will either rob it and jump to(i + 2)th house OR we won't rob the ith house and jump to (i+1)th house  - Recurrance relation:
+// - Here we we apply recurrsion and whe n we are at ith house we will either rob it and jump to(i + 2)th house OR we won't rob the ith house and jump to (i+1)th house
+// - Recurrance relation:
 //     i->index to iterate, arr->array
 
 //                        |----->arr[i] + f(arr, i + 2); // rob and jump by 2
