@@ -1,0 +1,13 @@
+													DYNAMIC PROGRAMMING NOTES:
+
+-State of DP: Set of all the parameter which tells us the its repeating itself or identifies sub-problems.
+	     It help us to identify the dimension of dp if state of dp is 1 then we require 1-D dp atmost if its 2 the we require 2-D dp atmost. 
+-Optimal Sub-structure: Its referred as when we use small problem solution to solve a bigger sub-problem optimally.
+
+-Dp is optimization technique:
+			Dp 
+			 |
+		  _______|______	
+		 |              |
+	Combinatories        Optimization
+	(Counting)             (min,max)
