@@ -18,11 +18,11 @@
 //             text2 = "def" Output : 0 Explanation : There is no such common subsequence, so the result is 0.
 
 // Solution:
-// Top-down Approach:
 vector<vector<int>> dp;
 class Solution
 {
 public:
+  // Top-Down Dp
   int f(string &s1, string &s2, int i, int j)
   {
     if (i >= s1.size() || j > s2.size())
@@ -41,7 +41,24 @@ public:
   int longestCommonSubsequence(string text1, string text2)
   {
     dp.clear();
-    dp.resize(1005, vector<int>(1005, -1));
-    return f(text1, text2, 0, 0);
+    dp.resize(1005, vector<int>(1005, 0));
+    // return f(text1,text2,0,0);
+        Bottom Up Dp:
+                For Bottom Up sol just initialize the dp by 0 as base case is 0
+    for (int i = text1.size() - 1; i >= 0; i--)
+    {
+      for (int j = text2.size() - 1; j >= 0; j--)
+      {
+        if (text1[i] == text2[j])
+        {
+          dp[i][j] = 1 + dp[i + 1][j + 1];
+        }
+        else
+        {
+          dp[i][j] = max(dp[i][j + 1], dp[i + 1][j]);
+        }
+      }
+    }
+    return dp[0][0];
   }
 };
