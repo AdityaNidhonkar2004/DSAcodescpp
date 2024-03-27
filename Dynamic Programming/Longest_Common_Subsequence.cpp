@@ -9,13 +9,16 @@
 //     Example 1 :
 
 //     Input : text1 = "abcde",
-//             text2 = "ace" Output : 3 Explanation : The longest common subsequence is "ace" and its length is 3. Example 2 :
+//             text2 = "ace"
+//     Output : 3 Explanation : The longest common subsequence is "ace" and its length is 3. Example 2 :
 
 //     Input : text1 = "abc",
-//             text2 = "abc" Output : 3 Explanation : The longest common subsequence is "abc" and its length is 3. Example 3 :
+//             text2 = "abc"
+//     Output : 3 Explanation : The longest common subsequence is "abc" and its length is 3. Example 3 :
 
 //     Input : text1 = "abc",
-//             text2 = "def" Output : 0 Explanation : There is no such common subsequence, so the result is 0.
+//             text2 = "def"
+//    Output : 0 Explanation : There is no such common subsequence, so the result is 0.
 
 // Solution:
 vector<vector<int>> dp;
@@ -43,8 +46,8 @@ public:
     dp.clear();
     dp.resize(1005, vector<int>(1005, 0));
     // return f(text1,text2,0,0);
-        Bottom Up Dp:
-                For Bottom Up sol just initialize the dp by 0 as base case is 0
+    // Bottom Up Dp:
+    //         For Bottom Up sol just initialize the dp by 0 as base case is 0
     for (int i = text1.size() - 1; i >= 0; i--)
     {
       for (int j = text2.size() - 1; j >= 0; j--)
