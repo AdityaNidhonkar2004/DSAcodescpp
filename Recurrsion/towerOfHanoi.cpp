@@ -6,6 +6,7 @@ void toh(int n, char s, char h, char d,int &cnt)
     return;
   cnt++;
   toh(n - 1, s, d, h,cnt);
+  //Print source and destination
   cout << s << "->" << d << endl;
   toh(n - 1, h, s, d,cnt);
 }
