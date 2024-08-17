@@ -1,12 +1,7 @@
-#include<bits/stdc++.h>
-using namespace std;
-// TC -> O(4*alpha) ~ O(constant)
 class DisjointSet{
-
     vector<int> rank,parent;
     
     public:
-
     DisjointSet(int n){
         rank.resize(n+1,0); // n+1 as we are considering the graph as 1 based indexing
         parent.resize(n+1,0);
@@ -43,39 +38,33 @@ class DisjointSet{
     }
 };
 
-
-int main(){
-    int n;
-    cout<<"Enter number of nodes : ";cin>>n;
-    DisjointSet ds(n);
-
-    while(1){
-        char c;
-        cout<<"Want to update graph ?(Y/N)";cin>>c;
-        if(c='Y'){
-             int u,v;
-             cout<<"Enter source node : ";cin>>u;
-             cout<<"Enter destination node : ";cin>>v;
-             ds.UnionByRank(u,v);
-        }
-        char o; 
-        cout<<"Want to check if any node if any two nodes belong to sname component or not?(Y/N)"; cin>>o;
-        if(o =='Y'){
-            int n1,n2;
-            cout<<"Enter any node present in graph :";cin>>n1;
-            cout<<"Enter another node present in graph ";cin>>n2;
-            if(ds.findParent(n1) == ds.findParent(n2)){
-                cout<<"Yes"<<endl;
-            }
-            else{
-                cout<<"No"<<endl;
+class Solution
+{
+	public:
+	//Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int spanningTree(int V, vector<vector<int>> adj[])
+    {
+        vector<pair<int,pair<int,int>>> edges;
+        for(int i=0;i<V;i++){
+            for(auto it : adj[i]){
+                int u=it[0];
+                int wt = it[1];
+                edges.push_back({wt,{i,u}});
             }
         }
-        char o2;
-        cout<<"Want to Continue ? (Y/N)";cin>>o2;
-        if(o2 == 'N') break;        
+        sort(edges.begin(),edges.end());
+        DisjointSet ds(V);
+        int mstWt=0;
+        for(auto it : edges){
+            int u=it.second.first;
+            int v=it.second.second;
+            int wt=it.first;
+            if(ds.findParent(u) != ds.findParent(v)){
+                mstWt+=wt;
+                ds.UnionByRank(u,v);
+            }
+        }
+        return mstWt;
+        
     }
-    cout<<"Program Ended :-)";
-
-
-}
+};
